@@ -2,6 +2,7 @@
 @section('content')
     @include('admin.Alert')
     @include('errors')
+    @include('massage')
     <div class="content-wrapper">
 
         <h2 class="card-title">Upload Company Information</h2>
@@ -151,21 +152,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-2" style="max-width: 25%;">
-                                    <p>Image</p>
-                                </div>
 
-                                <div class="col-sm-10">
-                                    <input accept="image/*" name="image" type='file' id="imgInp" />
-                                </div>
-                            </div>
-                            <img id="blah" src="{{ asset('images/' . $companies->image) }}" width="200rem"
-                                height="150rem" alt="your image"  style="margin-left:11rem"/>
 
                             <div class="form-group row">
                                 <div class="col-sm-2" style="max-width: 25%; padding-top:2rem">
-                                    <p>Logo</p>
+                                    <p>Company Image</p>
                                 </div>
                                 <div class="col-sm-10" style=" padding-top:2rem">
                                     <input type="file" name="logo" accept="image/*" onchange="loadFile(event)">
@@ -175,9 +166,21 @@
                                 height="150rem"  style="margin-left: 11rem"/>
 
 
+                                <div class="form-group row" style="margin-top: 1rem">
+                                    <div class="col-sm-2" style="max-width: 25%;">
+                                        <p>About Us Image</p>
+                                    </div>
+
+                                    <div class="col-sm-10">
+                                        <input accept="image/*" name="image" type='file' id="imgInp" />
+                                    </div>
+                                </div>
+                                <img id="blah" src="{{ asset('images/' . $companies->image) }}" width="200rem"
+                                    height="150rem" alt="your image"  style="margin-left:11rem"/>
+
                             <div class="form-group row">
                                 <div class="col-sm-2" style="max-width: 25%;padding-top:2rem">
-                                    <p>Icon</p>
+                                    <p>Company Logo</p>
                                 </div>
                                 <div class="col-sm-10" style="padding-top:2rem">
                                     <input accept="image/.$companies->icon" name="icon" type='file' id="imgIn" />

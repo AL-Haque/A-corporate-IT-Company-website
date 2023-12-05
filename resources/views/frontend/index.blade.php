@@ -342,55 +342,30 @@
 
 </section> --}}
 
-
-
-
-
-
-<section
-class="elementor-section elementor-top-section elementor-element elementor-element-5a91af2 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-data-id="5a91af2" data-element_type="section" style="background: #f8f9fa;">
-<div class="elementor-widget-container" style="padding-bottom:30px;padding-top:50px">
+<section>
     <h2 class="elementor-heading-title elementor-size-default"
-        style="text-align: center; color:#273C90; ">Our Client</h2>
+    style="text-align: center; color:#273C90; padding-bottom:50px ">Our Client</h2>
+    <div id="containerr"  data-animated>
+        <div class="shuvo">
+        <ul id="list">
+            @foreach ($clients as $item)
+            <li><img src= "{{asset('images/'.$item->image)}}">
+            </li>
+            {{-- <li>Second</li>
+            <li>Third</li>
+            <li>Fourth</li>
+            <li>Fifth</li>
+            <li>First</li>
+            <li>Second</li>
+            <li>Third</li>
+            <li>Fourth</li>
+            <li>Fifth</li> --}}
+            @endforeach
+        </ul>
+    </div>
 </div>
-<div class="elementor-container elementor-column-gap-default" >
 
-    @foreach ($clients as $item)
-        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-196753d"
-            data-id="196753d" data-element_type="column">
 
-            <div class="elementor-widget-wrap elementor-element-populated">
-                <div class="elementor-element elementor-element-54d65b9 elementor-arrows-position-inside elementor-widget elementor-widget-image-carousel"
-                    data-id="54d65b9" data-element_type="widget"
-                    data-settings="{&quot;slides_to_show&quot;:&quot;4&quot;,&quot;slides_to_scroll&quot;:&quot;1&quot;,&quot;navigation&quot;:&quot;arrows&quot;,&quot;lazyload&quot;:&quot;yes&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;speed&quot;:500}"
-                    data-widget_type="image-carousel.default">
-
-                    <div class="elementor-widget-container">
-                        {{-- <div class="elementor-image-carousel-wrapper swiper-container" dir="ltr"> --}}
-                        <div class="elementor-image-carousel swiper-wrapper" style="height: 0%" aria-live="off">
-                            <div class="swiper-slide" role="group" aria-roledescription="slide"
-                                aria-label="1 of 44"> <a href="{{ route('clients') }}">
-                                    <figure class="swiper-slide-inner" style="padding-bottom:50px"><img class="swiper-slide-image swiper-lazy"
-                                            style="height:6rem;width:8rem; border:2px solid #273C90;padding:5px;border-radius:5px"
-                                            src="{{ asset('images/' . $item->image) }}"
-                                            alt="royal vision tourism logo" />
-                                        {{-- <div class="swiper-lazy-preloader"></div> --}}
-                                    </figure>
-                                </a>
-                            </div>
-                        </div>
-                        {{-- </div> --}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endforeach
-    {{-- <div class="elementor-swiper-button elementor-swiper-button-next" role="button" tabindex="0">
-      <a href="{{route('clients')}}"> <i aria-hidden="true"  style="color:black"   class="eicon-chevron-right"></i></a>
-    </div> --}}
-</div>
-</section>
 <section
 class="elementor-section elementor-top-section elementor-element elementor-element-3533b58 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
 data-id="3533b58" data-element_type="section">
@@ -458,3 +433,55 @@ data-id="3533b58" data-element_type="section">
 </div>
 </section>
 @endsection
+
+
+
+{{-- carosoul css and js --}}
+<script>
+    const list = document.querySelector("#list");
+    const listContent = Array.from(list.children);
+
+    listContent.forEach(item => {
+        const duplicatedItem = item.cloneNode(true);
+        duplicatedItem.setAttribute("aria-hidden",true);
+        list.appendChild(duplicatedItem);
+    });
+
+    </script>
+<style>
+
+
+
+    #container{
+        width: 200vw;
+        mask: linear-gradient(90deg, transparent, white 40%, white 60%, transparent);
+        -webkit-mask: linear-gradient(90deg, transparent, white 40%, white 60%, transparent);
+    }
+    .shuvo ul{
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        padding: 0;
+    }
+
+    #list li img{
+        height: 100px;
+        width: 150px;
+    }
+
+    #containerr[data-animated]{
+        overflow: hidden;
+
+    }
+    #containerr[data-animated] #list{
+        width: max-content;
+        animation: scroll 20s linear infinite;
+    }
+
+    @keyframes scroll{
+        to{
+            translate: calc(-30% - 5px);
+        }
+    }
+
+        </style>

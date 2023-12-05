@@ -2,6 +2,7 @@
 @section('content')
     @include('errors')
     @include('admin.Alert')
+    @include('massage')
     <div class="content-wrapper">
         <h2 class="card-title">Pricing Information</h2>
 
@@ -144,7 +145,7 @@
                                         <td><img src="{{asset('images/'.$item->image) }}" alt=""></td>
                                         <td> <a href="{{ route('pricing.edit', $item->id) }}"><i
                                             class="fa-solid fa-pen"></i> </a></td>
-                                <td><a href="{{ route('pricing.delete', $item->id) }}"><i
+                                <td><a href="{{ route('pricing.delete', $item->id) }}" onclick=" return confirm('Are You Sure!') "><i
                                             class="fa-solid fa-trash"></i></a></td>
                                     </tr>
                                 @endforeach

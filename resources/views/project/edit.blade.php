@@ -2,6 +2,7 @@
 @section('content')
     @include('admin.Alert')
     @include('errors')
+    @include('massage')
     <!-- partial -->
 
     <div class="content-wrapper">
@@ -127,7 +128,7 @@
                                             <td><img src="{{ asset('images/' . $item->image) }}" alt=""></td>
                                             <td> <a href="{{ route('project.edit', $item->id) }}"><i
                                                 class="fa-solid fa-pen"></i> </a></td>
-                                    <td><a href="{{ route('project.delete', $item->id) }}"><i
+                                    <td><a href="{{ route('project.delete', $item->id) }}" onclick=" return confirm('Are You Sure!') "><i
                                                 class="fa-solid fa-trash"></i></a></td>
                                         </tr>
                                     @endforeach

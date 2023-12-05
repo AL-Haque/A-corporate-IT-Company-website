@@ -3,6 +3,7 @@
     @include('admin.Alert')
     <!-- partial -->
     @include('errors')
+    @include('massage')
 
     <div class="content-wrapper">
         <div class="row">
@@ -109,7 +110,7 @@
                                             <td><img src="{{ asset('images/banner/' . $item->banner) }}" alt=""></td>
                                             <td> <a href="{{ route('service.edit', $item->id) }}"><i
                                                         class="fa-solid fa-pen"></i> </a></td>
-                                            <td><a href="{{ route('service.delete', $item->id) }}"><i
+                                            <td><a href="{{ route('service.delete', $item->id) }}" onclick=" return confirm('Are You Sure!') "><i
                                                         class="fa-solid fa-trash"></i></a></td>
                                         </tr>
                                     @endforeach

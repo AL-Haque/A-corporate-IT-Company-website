@@ -83,7 +83,6 @@ Route::post('/user-login', [userController::class, 'userLogin'])->name('userLogi
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [adminController::class, 'dashboard'])->name('dashboard');
-
     Route::get('/company', [adminDashboardController::class, 'index'])->name('company.index');
     Route::post('/company/update', [adminDashboardController::class, 'update'])->name('company.update');
 

@@ -1170,6 +1170,24 @@ shown at once-->
             }))
         }((window, document), window._wpemojiSettings);
     </script>
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/655da45cd600b968d315cc24/1hfqsk2in';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+
+    {{-- <div class="pubble-app" data-app-id="1234" data-app-identifier="1234"
+data-user-name="${user.name}" data-user-email="${user.email}" data-user-type="Lead"></div>
+<script type="text/javascript" src="https://cdn.chatify.com/javascript/loader.js" defer></script> --}}
 
 </body>
 

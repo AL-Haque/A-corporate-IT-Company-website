@@ -92,10 +92,10 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $info=Company::all();
-        $project = Project::latest()->paginate(5);
+        $info=Company::first();
+        $project = Project::latest()->paginate(1);
         $projects = Project::first();
-        return view('project.index', compact('project', 'projects','info'));
+        return view('project.index', compact('project','projects','info'));
     }
 
     public function store()

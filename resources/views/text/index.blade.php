@@ -2,6 +2,7 @@
 @section('content')
     @include('errors')
     @include('admin.Alert')
+    @include('massage')
     <div class="content-wrapper">
         <h2 class="card-title">Add Text</h2>
 
@@ -57,7 +58,7 @@
                                         <td>{{ $item->name }}</td>
                                             <td> <a href="{{ route('text.edit', $item->id) }}"><i
                                                 class="fa-solid fa-pen"></i> </a></td>
-                                    <td><a href="{{ route('text.delete', $item->id) }}"><i
+                                    <td><a href="{{ route('text.delete', $item->id) }}" onclick=" return confirm('Are you Sure!') "><i
                                                 class="fa-solid fa-trash"></i></a></td>
                                     </tr>
                                 @endforeach

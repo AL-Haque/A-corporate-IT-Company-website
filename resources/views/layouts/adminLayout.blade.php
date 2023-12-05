@@ -38,10 +38,6 @@
             </div>
         </div>
 </div>
-
-
-
-
      <!-- base:js -->
      <script src="{{asset('vendors/js/vendor.bundle.base.js')}}"></script>
      <!-- endinject -->

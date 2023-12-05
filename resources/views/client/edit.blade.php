@@ -2,6 +2,7 @@
 @section('content')
     <!-- partial -->
     @include('errors')
+    @include('massage')
 
     <div class="content-wrapper">
         <div class="row">
@@ -55,12 +56,10 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td><img src="{{ asset('images/' . $item->image) }}" alt="Image"></td>
-
                                             <td>{{ $item->created_at }}</td>
-                                            <td> <a href="{{ route('client.edit', $item->id) }}">
                                             <td> <a href="{{ route('client.edit', $item->id) }}"><i
                                                         class="fa-solid fa-pen"></i> </a></td>
-                                            <td><a href="{{ route('client.delete', $item->id) }}"><i
+                                            <td><a href="{{ route('client.delete', $item->id) }}" onclick=" return confirm('Are You Sure!') "><i
                                                         class="fa-solid fa-trash"></i></a></td>
                                             </td>
                                         </tr>

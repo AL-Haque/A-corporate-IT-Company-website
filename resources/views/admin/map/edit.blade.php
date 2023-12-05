@@ -4,6 +4,7 @@
 @include('admin.Alert')
     <!-- partial -->
     @include('errors')
+    @include('massage')
     <div class="content-wrapper">
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
@@ -59,7 +60,7 @@
                                             <td>{{ $item->created_at }}</td>
                                             <td> <a href="{{ route('map.edit', $item->id) }}"><i
                                                 class="fa-solid fa-pen"></i> </a></td>
-                                    <td><a href="{{ route('map.delete', $item->id) }}"><i
+                                    <td><a href="{{ route('map.delete', $item->id) }}" onclick=" return confirm('Are You Sure!') "><i
                                                 class="fa-solid fa-trash"></i></a></td>
                                         </tr>
                                     @endforeach

@@ -2,6 +2,7 @@
 @section('content')
     @include('errors')
     @include('admin.Alert')
+    @include('massage')
     <div class="content-wrapper">
         <h2 class="card-title">Product Information</h2>
 
@@ -9,8 +10,6 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-
-
                         <form class="forms-sample" method="POST" action=" {{ route('pricing.update', $price->id) }}"
                             enctype="multipart/form-data">
                             {{ csrf_field() }}
@@ -86,7 +85,8 @@
                                 <div class="col-sm-9">
                                     <input type="file" name="image" accept="images/*" onchange="loadFile(event)">
                                 </div>
-                                <img id="output" style="margin-left: 17.8rem" src="{{asset('images/'.$price->image)}}" width="220px" height="150px" />
+                                <img id="output" style="margin-left: 17.8rem" src="{{ asset('images/' . $price->image) }}"
+                                    width="220px" height="150px" />
                             </div>
                     </div>
                 </div>
@@ -106,69 +106,69 @@
     <!-- content-wrapper ends -->
 
     <!-- main-panel ends -->
-<div class="row">
-    <div class="content-wrapper">
-        <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Upload Other Project</h4>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Contet one</th>
-                                    <th>Contet two</th>
-                                    <th>Contet three</th>
-                                    <th>Contet four</th>
-                                    <th>Contet five</th>
-                                    <th>Contet six</th>
-                                    <th>Image</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                @foreach ($pricing as $item)
+    <div class="row">
+        <div class="content-wrapper">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Upload Other Project</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->content1 }}</td>
-                                        <td>{{ $item->content2 }}</td>
-                                        <td>{{ $item->content3 }}</td>
-                                        <td>{{ $item->content4 }}</td>
-                                        <td>{{ $item->content5 }}</td>
-                                        <td>{{ $item->content6 }}</td>
-                                        <td><img src="{{ asset('images/' . $item->image) }}" alt=""></td>
-                                        <td> <a href="{{ route('pricing.edit', $item->id) }}"><i
-                                            class="fa-solid fa-pen"></i> </a></td>
-                                <td><a href="{{ route('pricing.delete', $item->id) }}"><i
-                                            class="fa-solid fa-trash"></i></a></td>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Contet one</th>
+                                        <th>Contet two</th>
+                                        <th>Contet three</th>
+                                        <th>Contet four</th>
+                                        <th>Contet five</th>
+                                        <th>Contet six</th>
+                                        <th>Image</th>
+                                        <th>Action</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        {!! $pricing->withQueryString()->links('pagination::bootstrap-5') !!}
+                                </thead>
+                                <tbody>
+
+                                    @foreach ($pricing as $item)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->content1 }}</td>
+                                            <td>{{ $item->content2 }}</td>
+                                            <td>{{ $item->content3 }}</td>
+                                            <td>{{ $item->content4 }}</td>
+                                            <td>{{ $item->content5 }}</td>
+                                            <td>{{ $item->content6 }}</td>
+                                            <td><img src="{{ asset('images/' . $item->image) }}" alt=""></td>
+                                            <td> <a href="{{ route('pricing.edit', $item->id) }}"><i
+                                                        class="fa-solid fa-pen"></i> </a></td>
+                                            <td><a href="{{ route('pricing.delete', $item->id) }}" onclick=" return confirm('Are You Sure!') "><i
+                                                        class="fa-solid fa-trash"></i></a></td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            {!! $pricing->withQueryString()->links('pagination::bootstrap-5') !!}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
-</div>
 
-
-@push('admin-js')
-<script>
-    var loadFile = function(event) {
-        var output = document.getElementById('output');
-        output.src = URL.createObjectURL(event.target.files[0]);
-        output.onload = function() {
-            URL.revokeObjectURL(output.src) // free memory
-        }
-    };
-</script>
-@endpush
+    @push('admin-js')
+        <script>
+            var loadFile = function(event) {
+                var output = document.getElementById('output');
+                output.src = URL.createObjectURL(event.target.files[0]);
+                output.onload = function() {
+                    URL.revokeObjectURL(output.src) // free memory
+                }
+            };
+        </script>
+    @endpush
     <!-- base:js -->
 @endsection

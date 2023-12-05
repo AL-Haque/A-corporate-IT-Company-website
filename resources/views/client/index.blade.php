@@ -2,6 +2,7 @@
 
 @section('content')
     @include('admin.Alert')
+    @include('massage')
     <!-- partial -->
     @include('errors')
     <div class="content-wrapper">
@@ -57,7 +58,7 @@
 
                                         <td>{{ $item->created_at }}</td>
                                         <td> <a href="{{ route('client.edit', $item->id) }}"><i class="fa-solid fa-pen"></i> </a></td>
-                                        <td><a href="{{ route('client.delete', $item->id) }}"><i class="fa-solid fa-trash"></i></a></td>
+                                        <td><a href="{{ route('client.delete', $item->id) }}" onclick=" return confirm('Are You Sure!') "><i class="fa-solid fa-trash"></i></a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
